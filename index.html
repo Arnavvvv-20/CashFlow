@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Campus Cashflow™ - Digital Product Launch for Students</title>
+  <style>
+    :root {
+      --main-color: #111827;
+      --accent-color: #2563eb;
+      --light-bg: #f9f9f9;
+      --white: #ffffff;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--light-bg);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--main-color);
+      color: var(--white);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+      background: var(--white);
+    }
+
+    h1, h2, h3 {
+      color: var(--main-color);
+      margin-top: 1rem;
+    }
+
+    .cta {
+      background: var(--accent-color);
+      color: var(--white);
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.1rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      background: #1e40af;
+      border-radius: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      overflow-x: auto;
+    }
+
+    table th, table td {
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    table th {
+      background: #f3f4f6;
+    }
+
+    .faq h3 {
+      margin-top: 1.5rem;
+    }
+
+    .bonus, .value-stack {
+      background: #f1f5f9;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .beat {
+      display: inline-block;
+      animation: beat 0.6s infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .heading {
+      text-align: center;
+      color: var(--white);
+    }
+
+    .containerr {
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #000000;
+      text-align: center;
+    }
+
+    .old-price {
+      position: relative;
+      display: inline-block;
+      color: #000000;
+      margin-right: 10px;
+    }
+
+    .old-price::before,
+    .old-price::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      background: red;
+      width: 100%;
+      height: 2px;
+      transform-origin: center;
+      animation: blink 0.5s infinite;
+    }
+
+    .old-price::before { transform: rotate(10deg); }
+    .old-price::after { transform: rotate(-10deg); }
+
+    #timer {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #e53935;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      .cta {
+        font-size: 1rem;
+        padding: 1rem 0.5rem;
+      }
+
+      .cta a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      #timer {
+        font-size: 1.5rem;
+      }
+
+      .containerr {
+        font-size: 1.2rem;
+      }
+
+      .cta {
+        font-size: 0.95rem;
+      }
+
+      table, table th, table td {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+      }
+    }
+    .testimonials {
+  background: #fef9c3;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.testimonials h2 {
+  margin-bottom: 1rem;
+  color: #b45309;
+  font-size: 1.8rem;
+}
+
+.testimonial {
+  margin-bottom: 2rem;
+  font-style: italic;
+  color: #333;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.stars {
+  color: #f59e0b;
+  font-size: 1.4rem;
+  margin: 0.3rem 0;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="beat"><h1 class="heading">⭐ Campus Cashflow™</h1></span>
+  <p class="heading"><em>Launch & Profit from Digital Products Before You Graduate</em></p>
+  <p class="heading">Turn your laptop into a money-making machine — no followers, no tech skills, no fluff.</p>
+</header>
+
+<div class="container">
+  <h2>🎯 Tired of Feeling Stuck?</h2>
+  <p>You've seen creators making money from ebooks, planners, Notion templates... but you’re still figuring out how to start. Campus Cashflow™ is your shortcut to launching your first profitable digital product — with zero coding, no audience, and no prior experience.</p>
+
+  <h2>🚀 What You'll Learn:</h2>
+  <ul>
+    <li>Find a profitable product idea even if you’re not “an expert”</li>
+    <li>Create your product with free tools like Canva & Notion</li>
+    <li>Set up your store using Gumroad, Etsy or Google Drive</li>
+    <li>Launch in 7 days — with no fluff</li>
+  </ul>
+
+  <h2>✅ What’s Included:</h2>
+  <div class="value-stack">
+    <div style="overflow-x:auto;">
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Value (₹)</th>
+      </tr>
+      <tr>
+        <td>🎥 Video Course</td>
+        <td>Step-by-step, beginner-friendly videos</td>
+        <td>₹5,999</td>
+      </tr>
+      <tr>
+        <td>✅ Templates</td>
+        <td>5+ Canva product & launch templates</td>
+        <td>₹3,499</td>
+      </tr>
+      <tr>
+        <td>💡 Product Idea Vault</td>
+        <td>5+ proven digital product ideas for students</td>
+        <td>₹1,999</td>
+      </tr>
+      <tr>
+        <td>🤖 AI Prompt Vault</td>
+        <td>100+ ChatGPT prompts for content, marketing, & creation</td>
+        <td>₹1,999</td>
+      </tr>
+      <tr>
+        <td>🗓️ 7-Day Launch Sprint</td>
+        <td>Your guided calendar to go from zero to launch</td>
+        <td>₹1,499</td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+  <h2>🎁 Limited-Time Bonuses:</h2>
+  <div class="bonus">
+    <ul>
+      <li>✨ <strong>Launch Promo Kit</strong> – Canva MRR (₹1,999)</li>
+      <li>📘 <strong>5 Triggers That Sell</strong> – Mini eBook for writing persuasive copy (₹1,999)</li>
+    </ul>
+  </div>
+
+  <div class="containerr">
+    💸 Total Value: <span class="old-price">₹19,993</span>
+  </div>
+
+  <div class="cta">
+    🎉 <strong>Get everything for just ₹599</strong>  
+    <br/><br/>
+    <strong style="color: red;">Hurry!!!!!🤯🤯</strong> Offer ends in:
+    <div id="timer">00:00:00</div>
+    <a class="beat" href="C:\Users\user\Desktop\Cash\Form.html">👉 Buy Now & Get Instant Access</a>
+  </div>
+ <!--testimonial-->
+ <div class="testimonials">
+    <h2>🇮s Loved by Indian Students</h2>
+  
+    <div class="testimonial">
+      <p>“I made my first ₹2,000 just 4 days after launching my Notion planner! This course is gold.”</p>
+      <div class="stars">★★★★★</div>
+      <strong>— Ananya R., DU Student</strong>
+    </div>
+  
+    <div class="testimonial">
+      <p>“Never thought selling digital products was this simple. Even without followers, I made sales!”</p>
+      <div class="stars">★★★★★</div>
+      <strong>— Raj P., BITS Pilani</strong>
+    </div>
+  
+    <div class="testimonial">
+      <p>“Campus Cashflow is a must for every Indian student who wants extra income. So easy to follow.”</p>
+      <div class="stars">★★★★★</div>
+      <strong>— Meera T., Symbiosis Pune</strong>
+    </div>
+    <div class="testimonial">
+        <p>“The content is super valuable and easy to follow. I just wish there were more real student examples.”</p>
+        <div class="stars">★★★★✬</div>
+        <strong>— Karan M., SRM University</strong>
+      </div>
+  </div>
+  
+  
+  <h2>🙋‍♂️ FAQs</h2>
+  <div class="faq">
+    <h3>Q: Do I need to be good at tech/design?</h3>
+    <p>No! All templates are beginner-friendly and use drag & drop tools like Canva and Notion.</p>
+
+    <h3>Q: Do I need a large social media following?</h3>
+    <p>Nope. You’ll learn organic strategies that work even with 0 followers.</p>
+
+    <h3>Q: Can I access the course anytime?</h3>
+    <p>Yes! It's 100% self-paced. Lifetime access included.</p>
+
+    <h3>Q: Can I do this alongside my college classes?</h3>
+    <p>Absolutely. The course is designed for busy students with just 1–2 hours a day.</p>
+  </div>
+</div>
+
+<footer>
+  © 2025 Campus Cashflow™ | Built for Indian Students  
+</footer>
+
+<script>
+  const END_TIME = new Date("2025-07-29T18:30:00Z").getTime(); // 12:00 AM IST
+
+  function updateTimer() {
+    const now = new Date().getTime();
+    const distance = END_TIME - now;
+    const timerEl = document.getElementById("timer");
+
+    if (distance <= 0) {
+      timerEl.textContent = "Time's up!";
+      clearInterval(interval);
+      return;
+    }
+
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    timerEl.textContent =
+      String(hours).padStart(2, '0') + ":" +
+      String(minutes).padStart(2, '0') + ":" +
+      String(seconds).padStart(2, '0');
+  }
+
+  updateTimer();
+  const interval = setInterval(updateTimer, 1000);
+
+
+  document.addEventListener("contextmenu", e => e.preventDefault());
+  document.onkeydown = function (e) {
+    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+      return false;
+    }
+  };
+</script>
+
+</body>
+</html>

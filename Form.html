@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register for Campus Cashflow™</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 2rem;
+    }
+    .form-container {
+      background: white;
+      padding: 2rem;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    input, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e40af;
+    }
+    #status {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    #timer {
+      font-size: 1.2rem;
+      text-align: center;
+      color: #e53935;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .offer-note {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Register Now</h2>
+    <div class="offer-note">
+      Hurry!!!!! 🤯🤯 Offer ends in:
+      <div id="timer">00:00:00</div>
+    </div>
+    <form id="registration-form">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="hidden" name="amount" value="599" />
+      <button type="submit">Submit & Continue to Payment</button>
+    </form>
+    <div id="status"></div>
+  </div>
+
+  <script>
+    // Countdown timer
+    const END_TIME = new Date("2025-07-29T23:59:00+05:30").getTime(); // Set Indian deadline
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = END_TIME - now;
+      const timerEl = document.getElementById("timer");
+
+      if (distance <= 0) {
+        timerEl.textContent = "Time's up!";
+        clearInterval(interval);
+        return;
+      }
+
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      timerEl.textContent =
+        String(hours).padStart(2, '0') + ":" +
+        String(minutes).padStart(2, '0') + ":" +
+        String(seconds).padStart(2, '0');
+    }
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+
+    // Google Sheets form submission
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxEodNhY5p_p20KemhRrcU-lhFF1wFDGesGC6ye2lCQuA8pdhZwcZEVCgOJtXCSZYkh/exec"; // ← Replace with your Google Apps Script URL
+   
+  const form = document.forms['registration-form'];
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(scriptURL, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      alert("✅ Registered successfully!");
+      window.location.href = 'https://rzp.io/rzp/sG9PiQN'; // Replace with actual link
+    })
+    .catch(error => {
+      alert("❌ Error occurred: " + error.message);
+      console.error('Error!', error.message);
+    });
+  });
+
+  document.addEventListener("contextmenu", e => e.preventDefault());
+  document.onkeydown = function (e) {
+    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+      return false;
+    }
+  };
+</script>
+
+
+</body>
+</html>
