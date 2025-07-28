@@ -77,6 +77,20 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+#custom-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-family: sans-serif;
+  transition: opacity 0.5s ease;
+}
+
   </style>
 </head>
 <body>
@@ -97,6 +111,7 @@
         <span class="spinner hidden"></span>
       </button>
     </form>
+    <div id="custom-alert" class="hidden"></div>
     <div id="status"></div>
   </div>
 
@@ -135,8 +150,21 @@
   const submitBtn = document.getElementById('submitBtn');
   const spinner = submitBtn.querySelector('.spinner');
   const btnText = submitBtn.querySelector('.btn-text');
+  const alertBox = document.getElementById('custom-alert');
 
-    form.addEventListener('submit', e => {
+
+  // Function to show custom auto-closing alert
+  function showCustomAlert(message, color = '#4CAF50', duration = 3000) {
+    alertBox.textContent = message;
+    alertBox.style.backgroundColor = color;
+    alertBox.classList.remove('hidden');
+
+    setTimeout(() => {
+      alertBox.classList.add('hidden');
+    }, duration);
+  }
+
+  form.addEventListener('submit', e => {
     e.preventDefault();
 
     // Show spinner and disable button
@@ -151,15 +179,17 @@
       body: formData
     })
     .then(response => {
-      alert("✅ Registered successfully!");
-      window.location.href = 'https://rzp.io/rzp/sG9PiQN'; // Replace with actual link
+      showCustomAlert("✅ Registered successfully!");
+      setTimeout(() => {
+        window.location.href = 'https://rzp.io/rzp/sG9PiQN'; // Replace with your link
+      }, 2000);
     })
     .catch(error => {
-      alert("❌ Error occurred: " + error.message);
+      showCustomAlert("❌ Error: " + error.message, '#e74c3c');
       console.error('Error!', error.message);
     })
     .finally(() => {
-      // Optional: Hide spinner if redirect not immediate
+      // Reset button state if needed
       spinner.classList.add('hidden');
       btnText.textContent = 'Submit';
       submitBtn.disabled = false;
